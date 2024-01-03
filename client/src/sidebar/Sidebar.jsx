@@ -1,46 +1,49 @@
 import "./sidebar.css";
 import React from "react";
-import logo from "./images/logo.png";
-import myImage from "./images/file.png";
-import lineGraph from "./images/line-graph.png";
-import heatMap from "./images/heatmap.png";
-import chat from "./images/chat.png";
-import report from "./images/report.png";
-import logOut from "./images/logout.png";
+import logo from "../images/logo.png";
+import overView from "../images/overview.svg";
+import analytics from "../images/analytics.svg";
+import heatMap from "../images/heatmap.svg";
+import report from "../images/report.svg";
+import support from "../images/support.svg";
+// import report from "./images/report.png";
+import logOut from "../images/logout.svg";
+
 
 const Sidebar = () => {
   return (
     <div className="app">
       <div className="side-bar">
-      <div className="image-container">
+      <div className="logo">
           <img
             src={logo}
             alt=""
             height="100%"
             width="100%"
-            className="white-image"
           />
         </div>
+        <div className="line"></div>
+
         <div className="image-container">
           <img
-            src={myImage}
+            src={overView}
             alt=""
             height="25px"
             width="25px"
             className="white-image"
           />
-          <p style={{ color: "white" }}>Overview</p>
+          <div className="nav-route">Overview</div>
         </div>
         <div className="image-container">
           <img
-            src={lineGraph}
+            src={analytics}
             alt=""
             height="25px"
             width="25px"
             className="white-image"
           />
-          <p style={{ color: "white" }}>Analytics</p>
-        </div>
+          <div className="nav-route">Alalytics</div>
+                  </div>
         <div className="image-container">
           <img
             src={heatMap}
@@ -49,7 +52,7 @@ const Sidebar = () => {
             width="25px"
             className="white-image"
           />
-          <p style={{ color: "white" }}>Heatmap</p>
+          <div className="nav-route">Heatmap</div>
         </div>
         <div className="image-container">
         <img
@@ -59,19 +62,19 @@ const Sidebar = () => {
           width="25px"
           className="white-image"
         />
-        <p style={{ color: "white" }}>Report</p>
+        <div className="nav-route">Report</div>
       </div>
         <div className="image-container">
         <img
-          src={chat}
+          src={support}
           alt=""
           height="25px"
           width="25px"
           className="white-image"
         />
-        <p style={{ color: "white" }}>Support</p>
+        <div className="nav-route">Support</div>
       </div>
-      <div className="image-container">
+      <div className="logout">
       <img
         src={logOut}
         alt=""
@@ -79,7 +82,7 @@ const Sidebar = () => {
         width="25px"
         className="white-image"
       />
-      <p style={{ color: "white" }}>Logout</p>
+      <div className="nav-route">Logout</div>
     </div>
       </div>
     </div>
