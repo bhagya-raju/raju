@@ -24,13 +24,9 @@ const Main = ({ data, fetchData }) => {
   };
 
   useEffect(() => {
-    console.log("Data:", data);
-    console.log("Filters:", filters);
-  
     try {
       const filteredData = data.filter(item => {
-        if (filters.tags === '' && filters.location === '' && filters.violation === '') {
-          // No filtering for "Status" alone, return true to include all data
+        if (Object.values(filters).every(filter => !filter)) {
           return true;
         }
         return (
