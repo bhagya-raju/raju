@@ -104,6 +104,17 @@ app.post('/report', async (req, res) => {
   }
 });
 
+app.get("/allreports", async (req, res) => {
+  try {
+    let allreports = await report.find();
+
+    return res.json(allreports);
+  } catch (err) {
+    console.log(err);
+    return res.status(500).send("Server Error");
+  }
+});
+
 
 app.put('/report/:id', upload.single('image'), async (req, res) => {
   try {

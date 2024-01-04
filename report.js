@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
   assigned: { type:String },
   status: { type:String },
   imagepath: { type:String },
+  time: {
+    type: Date,
+    default: Date.now
+},
   live: { type: String, enum: ["yes", "no"] },
   comments: [
     {

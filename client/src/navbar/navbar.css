@@ -6,8 +6,9 @@
 
 .nav{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
 
 .navbar-text{
@@ -28,9 +29,10 @@
 }
 
 .notification{
+    display: inline-block;
     width: 24px;
     height: 24px;
-    
+    margin-left: 10px; 
 }
 
 .label{

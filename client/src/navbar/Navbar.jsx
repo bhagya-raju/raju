@@ -8,12 +8,15 @@ const Navbar = () => {
     <div className="navbar">
       <div className="nav">
         <div className="navbar-text">Hi, John doe</div>
-        <div className="auto"></div>
+
+ 
+        <div>
         <div className="notification">
           <img src={notification} alt="" />
         </div>
         <div className="notification">
           <img src={profile} alt="" />
+        </div>
         </div>
       </div>
     </div>
