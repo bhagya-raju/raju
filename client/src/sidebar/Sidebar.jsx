@@ -9,18 +9,12 @@ import support from "../images/support.svg";
 // import report from "./images/report.png";
 import logOut from "../images/logout.svg";
 
-
 const Sidebar = () => {
   return (
     <div className="app">
       <div className="side-bar">
-      <div className="logo">
-          <img
-            src={logo}
-            alt=""
-            height="100%"
-            width="100%"
-          />
+        <div className="logo">
+          <img src={logo} alt="" className="quant" height="100%" width="100%" />
         </div>
         <div className="line"></div>
 
@@ -43,7 +37,7 @@ const Sidebar = () => {
             className="white-image"
           />
           <div className="nav-route">Alalytics</div>
-                  </div>
+        </div>
         <div className="image-container">
           <img
             src={heatMap}
@@ -55,35 +49,35 @@ const Sidebar = () => {
           <div className="nav-route">Heatmap</div>
         </div>
         <div className="image-container">
-        <img
-          src={report}
-          alt=""
-          height="25px"
-          width="25px"
-          className="white-image"
-        />
-        <div className="nav-route">Report</div>
-      </div>
+          <img
+            src={report}
+            alt=""
+            height="25px"
+            width="25px"
+            className="white-image"
+          />
+          <div className="nav-route">Report</div>
+        </div>
         <div className="image-container">
-        <img
-          src={support}
-          alt=""
-          height="25px"
-          width="25px"
-          className="white-image"
-        />
-        <div className="nav-route">Support</div>
-      </div>
-      <div className="logout">
-      <img
-        src={logOut}
-        alt=""
-        height="25px"
-        width="25px"
-        className="white-image"
-      />
-      <div className="nav-route">Logout</div>
-    </div>
+          <img
+            src={support}
+            alt=""
+            height="25px"
+            width="25px"
+            className="white-image"
+          />
+          <div className="nav-route">Support</div>
+        </div>
+        <div className="logout">
+          <img
+            src={logOut}
+            alt=""
+            height="25px"
+            width="25px"
+            className="white-image"
+          />
+          <div className="nav-route">Logout</div>
+        </div>
       </div>
     </div>
   );
