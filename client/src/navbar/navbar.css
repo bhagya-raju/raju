@@ -1,0 +1,45 @@
+.navbar{
+    width: 1306px;
+    padding: 16px 20px;
+    background: var(--Theme-Colors-White, #FFF);
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar-text{
+    color: var(--Gray-900, #161C24);
+    font-family: Plus Jakarta Sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.auto{
+    display: flex;
+    width: 1266px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.notification{
+    width: 24px;
+    height: 24px;
+    
+}
+
+.label{
+    color: var(--Gray-900, #161C24);
+/* SubHeading 2/Medium */
+font-family: Plus Jakarta Sans;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 36px;
+padding: 20px;
+}

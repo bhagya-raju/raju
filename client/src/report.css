@@ -1,4 +1,8 @@
-.nav{
+.report{
     display: flex;
     flex-direction: row;
 }
+.sidebar{
+    width: 134px;
+}
+
