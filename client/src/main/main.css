@@ -18,7 +18,7 @@ background: var(--Theme-Colors-White, #FFF);
     color: var(--Gray-900, #161C24);
 
 /* SubHeading 3/Medium */
-font-family: Plus Jakarta Sans;
+/* font-family: Plus Jakarta Sans; */
 font-size: 18px;
 font-style: normal;
 font-weight: 500;
@@ -48,7 +48,7 @@ margin-left: 20px;
     justify-content: center;
     align-items: center;
     color: var(--Gray-700, #454F5B);
-    font-family: Plus Jakarta Sans;
+    /* font-family: Plus Jakarta Sans; */
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

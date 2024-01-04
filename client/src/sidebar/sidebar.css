@@ -57,7 +57,7 @@ align-items: center;
   text-align: center;
   color: #F9FAFB; 
   font-size: 14px; 
-  font-family: Plus Jakarta Sans; 
+  /* font-family: Plus Jakarta Sans;  */
   font-weight: 500;
   line-height: 20px; 
   word-wrap: break-word

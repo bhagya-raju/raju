@@ -13,7 +13,7 @@
 
 .navbar-text{
     color: var(--Gray-900, #161C24);
-    font-family: Plus Jakarta Sans;
+    /* font-family: Plus Jakarta Sans; */
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -38,7 +38,7 @@
 .label{
     color: var(--Gray-900, #161C24);
 /* SubHeading 2/Medium */
-font-family: Plus Jakarta Sans;
+/* font-family: Plus Jakarta Sans; */
 font-size: 24px;
 font-style: normal;
 font-weight: 500;
