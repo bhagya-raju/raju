@@ -99,7 +99,21 @@ z-index: 1;
     align-items: center;
     gap: 10px;
     border-radius: 4px;
+  }
+
+  .open{
     background: #FFF3D6;
+    color: #694100;
+  }
+
+  .inprogress{
+    background: #E0F1F5;
+    color: #005278;
+  }
+
+  .resolved{
+    background: #F3FFF6;
+    color: #006100;
   }
   
   .row-align,

@@ -1,6 +1,8 @@
 import React from 'react'
 import "./card.css"
 import redalert from "../images/Rectanglered.svg"
+import accident from "../images/Accident.svg"
+import nearmiss from "../images/nearmiss.svg"
 import maximize from "../images/maximize.svg"
 import ellipse from "../images/ellipse.svg"
 import Ellipse from "../images/Ellipsenew.svg"
@@ -10,21 +12,43 @@ import edit from "../images/edit.svg"
 import more from "../images/more.svg"
 
 const Card = ({report}) => {
-    // const options = {
-    //     day: 'numeric',
-    //     month: 'short',
-    //     hour: 'numeric',
-    //     minute: 'numeric',
-    //     second: 'numeric',
-    //   };
-      
-    //   const formattedDate = new Intl.DateTimeFormat('en-US', options).format(report.time);
-      
+    const timestamp = report.time;
+    const dateObject = new Date(timestamp);
+    const formattedDate = new Intl.DateTimeFormat('en-US', {
+        day: 'numeric',
+        month: 'short',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      }).format(dateObject);
+
+      let tagImage;
+
+      if (report.tags === "False alert") {
+        tagImage = <img src={redalert} alt="Red alert" />;
+      } else if (report.tags === "Accident") {
+        tagImage = <img src={accident} alt="Accident" />;
+      } else {
+        tagImage = <img src={nearmiss} alt="Near miss" />;
+      } ;
+      const getStatus = (status) => {
+        switch (status.toLowerCase()) {
+          case 'open':
+            return 'open';
+          case 'in progress':
+            return 'inprogress';
+          case 'resolved':
+            return 'resolved';
+          default:
+            return 'default';
+        }
+      };
   return (
     <div className='card'>
     <div>
     <div className='red-alert'>
-      <img src={redalert} alt="" />
+      {tagImage}
       <p className='alert-text'>{report.tags}</p>
     </div>
     <div className='ellipse'>
@@ -53,14 +77,16 @@ const Card = ({report}) => {
     <div className='flex-align'>
     <div className='row-align'>
     <p className='camname'>{report.camname}</p>
-    <p className='status'>{report.status}</p>
+    <p className={`status ${getStatus(report.status)}`}>
+  {report.status}
+</p>
     </div>
     <div className='row-align-new'>
     <img src={edit} alt="" />
     <img src={more} alt="" />
     </div>
     </div>
-    <p className='time'>20 Aug, 10:12:20 </p>
+    <p className='time'>{formattedDate}</p>
     </div>
     <div>
     
