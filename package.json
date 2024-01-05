@@ -4,7 +4,7 @@
   "description": "Developer hub application",
   "main": "server.js",
   "type": "module",
-  "homepage": "https://your-username.github.io/your-repo-name",
+  "homepage": "https://bhagya-raju.github.io/raju",
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
