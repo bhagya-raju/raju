@@ -55,7 +55,7 @@ const Main = ({ data, fetchData }) => {
       <div className="main">
         <div className="align">
           <div className="flex-container">
-            <div className="incidents">All Incidents ({data.length})</div>
+            <div className="incidents">All Incidents ({filteredData.length})</div>
             <div>
               <button className="button">
                 Download
@@ -119,9 +119,11 @@ const Main = ({ data, fetchData }) => {
             <button className="dropdown">Unassigned</button>
           </div>
         </div>
+        <div className="grid">
         {filteredData.map((report) => (
           <Card key={report._id} report={report} />
         ))}
+        </div>
       </div>
     </div>
   );
