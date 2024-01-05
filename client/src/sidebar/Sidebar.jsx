@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import "./sidebar.css";
 import logo from "../images/logo.png";
 import overView from "../images/overview.svg";
@@ -17,6 +17,7 @@ const menuItems = [
 ];
 
 const Sidebar = () => {
+  
   return (
     <div className="app">
       <div className="side-bar">

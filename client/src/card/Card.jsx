@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import "./card.css"
 import redalert from "../images/Rectanglered.svg"
 import accident from "../images/Accident.svg"
@@ -81,7 +81,7 @@ const Card = ({report }) => {
     <p>{report.location}</p>
     </div>
 
-    <div className='image-container'>
+    <div >
       <img src={`data:image/png;base64, ${report.imagepath}`} alt="" className='image' />
     </div>
     </div>

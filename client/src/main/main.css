@@ -3,7 +3,7 @@
 }
 .main {
   width: 1266px;
-  height: 565px;
+  height: 741px;
   flex-shrink: 0;
   border-radius: 8px;
   background: var(--Theme-Colors-White, #fff);
@@ -61,7 +61,7 @@
 }
 
 .blue-text {
-  color: blue`;
+  color: blue;
 }
 
 .custom-dropdown {

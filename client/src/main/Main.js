@@ -23,31 +23,26 @@ const Main = ({ data, fetchData }) => {
     }));
   };
 
-  useEffect(() => {
+   useEffect(() => {
+    console.log("Data:", data);
+    console.log("Filters:", filters);
+  
     try {
-      const filterFunction = (item) => {
-        if (Object.values(filters).every((filter) => !filter)) {
+      const filteredData = data.filter(item => {
+        if (filters.status === '' && filters.tags === '' && filters.location === '' && filters.violation === '') {
+          // No filtering for "Status" alone, return true to include all data
           return true;
         }
-  
         return (
-          (!filters.status ||
-            item.status.toLowerCase() === filters.status.toLowerCase()) &&
-          (!filters.tags ||
-            filters.tags.includes(item.tags.toLowerCase())) &&
-          (!filters.location ||
-            filters.location.includes(item.location.toLowerCase())) &&
-          (!filters.violation ||
-            filters.violation.includes(item.violation.toLowerCase()))
+          
+          (!filters.status || item.status.toLowerCase() === filters.status.toLowerCase()) &&
+          (!filters.tags || item.tags.toLowerCase() === filters.tags.toLowerCase()) &&
+          (!filters.location || item.location.toLowerCase() === filters.location.toLowerCase()) &&
+          (!filters.violation || item.violation.toLowerCase() === filters.violation.toLowerCase())
         );
-      };
+      });
   
-      const filteredData =
-        filters.tags.length === 0 &&
-        filters.location.length === 0 &&
-        filters.violation.length === 0
-          ? data // No filtering for "Status" alone, return all data
-          : data.filter(filterFunction);
+      console.log("Filtered Data:", filteredData);
   
       setFilteredData(filteredData);
     } catch (error) {
