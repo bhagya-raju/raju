@@ -8,10 +8,10 @@ import { fetchData } from "../redux/actions";
 
 const Main = ({ data, fetchData }) => {
   const [filters, setFilters] = useState({
-    status: '',
-    tags: '',
-    location: '',
-    violation: '',
+    status: "",
+    tags: "",
+    location: "",
+    violation: "",
   });
 
   const [filteredData, setFilteredData] = useState([]);
@@ -25,20 +25,29 @@ const Main = ({ data, fetchData }) => {
 
   useEffect(() => {
     try {
-      const filteredData = data.filter(item => {
-        if (Object.values(filters).every(filter => !filter)) {
+      const filterFunction = (item) => {
+        if (Object.values(filters).every((filter) => !filter)) {
           return true;
         }
-        return (
-          
-          (!filters.status || item.status.toLowerCase() === filters.status.toLowerCase()) &&
-          (!filters.tags || item.tags.toLowerCase() === filters.tags.toLowerCase()) &&
-          (!filters.location || item.location.toLowerCase() === filters.location.toLowerCase()) &&
-          (!filters.violation || item.violation.toLowerCase() === filters.violation.toLowerCase())
-        );
-      });
   
-      console.log("Filtered Data:", filteredData);
+        return (
+          (!filters.status ||
+            item.status.toLowerCase() === filters.status.toLowerCase()) &&
+          (!filters.tags ||
+            filters.tags.includes(item.tags.toLowerCase())) &&
+          (!filters.location ||
+            filters.location.includes(item.location.toLowerCase())) &&
+          (!filters.violation ||
+            filters.violation.includes(item.violation.toLowerCase()))
+        );
+      };
+  
+      const filteredData =
+        filters.tags.length === 0 &&
+        filters.location.length === 0 &&
+        filters.violation.length === 0
+          ? data // No filtering for "Status" alone, return all data
+          : data.filter(filterFunction);
   
       setFilteredData(filteredData);
     } catch (error) {
@@ -46,9 +55,17 @@ const Main = ({ data, fetchData }) => {
     }
   }, [data, filters]);
   
+
   useEffect(() => {
     fetchData();
   }, [fetchData]);
+
+  const dropdownOptions = {
+    status: ["Open", "Resolved", "In Progress"],
+    tags: ["False alert", "Near miss", "Accident"],
+    location: ["Mixing Tank", "Loading Dock", "Control Room", "Coke Drum A"],
+    violation: ["Option 1", "Option 2"],
+  };
 
   return (
     <div className="align">
@@ -68,54 +85,24 @@ const Main = ({ data, fetchData }) => {
             </div>
           </div>
           <div>
-            <select
-              id="statusDropdown"
-              className="dropdown"
-              value={filters.status}
-              onChange={(e) => handleFilterChange('status', e.target.value)}
-            >
-              <option value="">Status</option>
-              <option value="Open">Open</option>
-              <option value="Resolved">Resolved</option>
-              <option value="In Progress">In Progress</option>
-            </select>
-
-            <select
-              id="tagsDropdown"
-              className="dropdown"
-              value={filters.tags}
-              onChange={(e) => handleFilterChange('tags', e.target.value)}
-            >
-              <option value="">Tags</option>
-              <option value="False alert">False alert</option>
-              <option value="Near miss">Near miss</option>
-              <option value="Accident">Accident</option>
-            </select>
-
-            <select
-              id="locationDropdown"
-              className="dropdown"
-              value={filters.location}
-              onChange={(e) => handleFilterChange('location', e.target.value)}
-            >
-              <option value="">Location</option>
-              <option value="Mixing Tank">Mixing Tank</option>
-              <option value="Loading Dock">Loading Dock</option>
-              <option value="Control Room">Control Room</option>
-              <option value="Coke Drum A">Coke Drum A</option>
-            </select>
-
-            <select
-              id="violationDropdown"
-              className="dropdown"
-              value={filters.violation}
-              onChange={(e) => handleFilterChange('violation', e.target.value)}
-            >
-              <option value="">Violation</option>
-              <option value="Option 1">Option 1</option>
-              <option value="Option 2">Option 2</option>
-            </select>
-
+            {Object.entries(dropdownOptions).map(([key, values]) => (
+              <select
+                key={key}
+                id={`${key}Dropdown`}
+                className="dropdown"
+                value={filters[key]}
+                onChange={(e) => handleFilterChange(key, e.target.value)}
+              >
+                <option value="">
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
+                </option>
+                {values.map((value) => (
+                  <option key={value} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </select>
+            ))}
             <button className="dropdown">Unassigned</button>
           </div>
         </div>
