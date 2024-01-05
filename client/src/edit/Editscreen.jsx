@@ -98,7 +98,7 @@ const Editscreen = ({ report, formattedDate, handleEditClick, updateReport }) =>
             />
             <Dropdown
               label="tags"
-              initialOptions={["False Alert", "Near miss", "Accident"]}
+              initialOptions={["False alert", "Near miss", "Accident"]}
             />
           </div>
           <div className="save-sec">

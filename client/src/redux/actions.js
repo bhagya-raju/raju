@@ -53,7 +53,7 @@ export const updateReport = (data) => {
     dispatch(updateReportRequest());
 
     try {
-      const response = await axios.put('/report', { id, tags, status, assignedto });
+      const response = await axios.put('http://localhost:5000/report', { id, tags, status, assignedto });
       dispatch(updateReportSuccess(response.data));
       return response.data; // You can return the data if needed
     } catch (error) {

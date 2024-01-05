@@ -9,7 +9,9 @@ import multer from "multer";
 import fs from "fs"; 
 
 const app = express();
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: ["https://deploy-mern-1whq.vercel.app"],
+               methods:["POST","GET"],
+               credentials:true}));
 app.use(express.json());
 
 const storage = multer.memoryStorage();
