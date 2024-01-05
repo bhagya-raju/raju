@@ -1,7 +1,4 @@
 import axios from 'axios';
-// import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-//all team members profiles in hrdashboard
 
 const fetchDataRequest = () => ({
   type: 'FETCH_DATA_REQUEST',
@@ -32,5 +29,37 @@ export const fetchData = () => {
       .catch((error) => {
         dispatch(fetchDataFailure('Error fetching data'));
       });
+  };
+};
+
+
+export const updateReportRequest = () => ({
+  type: 'UPDATE_REPORT_REQUEST',
+});
+
+export const updateReportSuccess = (updatedReport) => ({
+  type: 'UPDATE_REPORT_SUCCESS',
+  payload: updatedReport,
+});
+
+export const updateReportFailure = (error) => ({
+  type: 'UPDATE_REPORT_FAILURE',
+  payload: error,
+});
+
+export const updateReport = (data) => {
+  const { id, tags, status, assignedto } = data;
+  return async (dispatch) => {
+    dispatch(updateReportRequest());
+
+    try {
+      const response = await axios.put('/report', { id, tags, status, assignedto });
+      dispatch(updateReportSuccess(response.data));
+      return response.data; // You can return the data if needed
+    } catch (error) {
+      console.error(error);
+      dispatch(updateReportFailure('Internal Server Error'));
+      throw error; // Re-throw the error to propagate it to the caller
+    }
   };
 };

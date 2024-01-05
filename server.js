@@ -67,9 +67,9 @@ app.post('/report', async (req, res) => {
       client,
       camname,
       location,
-      violationType,
+      violationtype,
       tags,
-      assigned,
+      assignedto,
       status,
       live,
       comments,
@@ -87,9 +87,9 @@ app.post('/report', async (req, res) => {
       client,
       camname,
       location,
-      violationType,
+      violationtype,
       tags,
-      assigned,
+      assignedto,
       status,
       imagepath: imageBase64,
       live,
@@ -116,17 +116,17 @@ app.get("/allreports", async (req, res) => {
 });
 
 
-app.put('/report/:id', upload.single('image'), async (req, res) => {
+app.put('/report', async (req, res) => {
   try {
-    const { tags, status, assigned } = req.body;
+    const { id, tags, status, assignedto } = req.body;
 
     const updatedReport = await report.findByIdAndUpdate(
-      req.params.id,
+      id,
       {
         $set: {
           tags,
           status,
-          assigned,
+          assignedto,
         },
       },
       { new: true }
@@ -138,6 +138,7 @@ app.put('/report/:id', upload.single('image'), async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 app.put('/report/:id/comment', async (req, res) => {
   try {

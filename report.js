@@ -4,9 +4,9 @@ const userSchema = new mongoose.Schema({
   client: { type: mongoose.Types.ObjectId, ref: "client" },
   camname: { type:String, },
   location: { type:String },
-  violationType: { type:String },
+  violationtype: { type:String },
   tags: { type:String },
-  assigned: { type:String },
+  assignedto: { type:String },
   status: { type:String },
   imagepath: { type:String },
   time: {

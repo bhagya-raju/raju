@@ -11,7 +11,7 @@ const Main = ({ data, fetchData }) => {
     status: "",
     tags: "",
     location: "",
-    violation: "",
+    violationtype: "",
   });
 
   const [filteredData, setFilteredData] = useState([]);
@@ -29,7 +29,7 @@ const Main = ({ data, fetchData }) => {
   
     try {
       const filteredData = data.filter(item => {
-        if (filters.status === '' && filters.tags === '' && filters.location === '' && filters.violation === '') {
+        if (filters.status === '' && filters.tags === '' && filters.location === '' && filters.violationtype === '') {
           // No filtering for "Status" alone, return true to include all data
           return true;
         }
@@ -38,7 +38,7 @@ const Main = ({ data, fetchData }) => {
           (!filters.status || item.status.toLowerCase() === filters.status.toLowerCase()) &&
           (!filters.tags || item.tags.toLowerCase() === filters.tags.toLowerCase()) &&
           (!filters.location || item.location.toLowerCase() === filters.location.toLowerCase()) &&
-          (!filters.violation || item.violation.toLowerCase() === filters.violation.toLowerCase())
+          (!filters.violationtype || item.violationtype.toLowerCase() === filters.violationtype.toLowerCase())
         );
       });
   
@@ -59,7 +59,7 @@ const Main = ({ data, fetchData }) => {
     status: ["Open", "Resolved", "In Progress"],
     tags: ["False alert", "Near miss", "Accident"],
     location: ["Mixing Tank", "Loading Dock", "Control Room", "Coke Drum A"],
-    violation: ["Option 1", "Option 2"],
+    violationtype: ["Option 1", "Option 2"],
   };
 
   return (
