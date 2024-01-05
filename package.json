@@ -4,11 +4,14 @@
   "description": "Developer hub application",
   "main": "server.js",
   "type": "module",
+  "homepage": "https://your-username.github.io/your-repo-name",
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
-    "both": "concurrently \"npm run server\" \"npm run client\""
+    "both": "concurrently \"npm run server\" \"npm run client\"",
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   },
   "author": "raj_rockers",
   "license": "ISC",
